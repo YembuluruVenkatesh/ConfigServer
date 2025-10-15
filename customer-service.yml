@@ -14,5 +14,5 @@ myapp:
   greeting: "Hello from Config Server!"
 customer:
   default-name: "John Doe!"
-  max-orders: 5!
+  max-orders: 15
   greeting: "Welcome to Customer Service!"

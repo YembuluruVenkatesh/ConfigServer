@@ -12,3 +12,7 @@ server:
   port: 8081
 myapp:
   greeting: "Hello from Config Server!"
+customer:
+  default-name: "John Doe"
+  max-orders: 5
+  greeting: "Welcome to Customer Service"

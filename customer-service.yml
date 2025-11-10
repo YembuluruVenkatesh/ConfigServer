@@ -1,19 +1,30 @@
+# ==============================
+# 🌱 Customer Service Configuration
+# ==============================
+
 spring:
   datasource:
-    ##url: jdbc:mysql://host.docker.internal:3306/ecommerce?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    url: jdbc:mysql://localhost:3307/ecommerce?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: root
-    password: root
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+    # 🔗 Database connection details
+    # Inside Docker, "mysql-db" is the container name for the MySQL service
+    url: jdbc:mysql://mysql-db:3306/ecommerce?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root       # 👤 Database username
+    password: root       # 🔒 Database password
 
+  jpa:
+    # ⚙️ Hibernate configuration (manages database tables & entities)
+    hibernate:
+      ddl-auto: update   # Automatically updates database tables based on entity classes
+    show-sql: true       # Logs SQL queries in the console for debugging
+
+# 🌍 Server port — where this service will run
 server:
-  port: 8081
+  port: 8081             # Access the service at http://localhost:8081
+
+# 💬 Custom properties — you can use them in your Java code with @Value or @ConfigurationProperties
 myapp:
-  greeting: "Hello from Config Server!"
+  greeting: "Hello from Config Server!"   # Example app-level message
+
 customer:
-  default-name: "John Doe!"
-  max-orders: 15
-  greeting: "Welcome to Customer Service!"
+  default-name: "John Doe"                # Default customer name
+  max-orders: 15                          # Limit on the number of orders
+  greeting: "Welcome to Customer Service!" # Custom greeting message for customers
